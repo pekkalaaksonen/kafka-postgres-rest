@@ -2,5 +2,5 @@ node_modules
 data
 temp
 
-.eslintrc.json
+eslintrc.json
 config.json
