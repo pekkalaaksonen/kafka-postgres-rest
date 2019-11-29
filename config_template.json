@@ -1,0 +1,11 @@
+{
+  "httpServer": {
+    "port": 
+  },
+  "kafka": {
+    "clientId": "",
+    "brokers": "",
+    "topics": "",
+    "groupId": ""
+  }
+}
