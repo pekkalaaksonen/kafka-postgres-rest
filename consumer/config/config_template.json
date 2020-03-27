@@ -1,0 +1,49 @@
+{
+  "dev": {
+    "kafka": {
+      "clientId": "kafkaDev",
+      "brokers": ["kafka:9092"],
+      "groupId": "kafka-rest-dev",
+      "ssl": false,
+      "certs": {
+        "ca": "ca",
+        "cert": "cert",
+        "key": "key"
+      }
+    }
+  },
+  "test": {
+    "kafka": {
+      "clientId": "kafkaTest",
+      "brokers": [
+        "kafka-test-01:39092",
+        "kafka-test-02:39092",
+        "kafka-test-03:39092"
+      ],
+      "groupId": "kafka-rest-test",
+      "ssl": true,
+      "certs": {
+        "ca": "ca",
+        "cert": "cert",
+        "key": "key"
+      }
+    }
+  },
+  "prod": {
+    "kafka": {
+      "clientId": "kafkaProd",
+      "brokers": [
+        "kafka-prod-01:39092",
+        "kafka-prod-02:39092",
+        "kafka-prod-03:39092"
+      ],
+      "groupId": "kafka-rest-prod",
+      "ssl": true,
+      "certs": {
+        "ca": "ca",
+        "cert": "cert",
+        "key": "key"
+      }
+    }
+  }
+}

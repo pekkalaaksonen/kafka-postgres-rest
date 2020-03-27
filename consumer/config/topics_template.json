@@ -1,0 +1,17 @@
+{
+  "dev": [
+    "dev.topic.01",
+    "dev.topic.02",
+    "dev.topic.03"
+  ],
+  "test": [
+    "test.topic.01",
+    "test.topic.02",
+    "test.topic.03"
+  ],
+  "prod": [
+    "prod.topic.01",
+    "prod.topic.02",
+    "prod.topic.03"
+  ]
+}

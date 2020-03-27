@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  client:
+    build: ./client
+    depends_on: 
+      - database
+    network_mode: bridge
+    container_name: kafka-rest-client
+    restart: always
+    ports:
+      - "3000:3000"
+    environment: 
+      - PORT=3000
+    env_file:
+      - database.env
+    links:
+      - database
+
+  consumer:
+    build: ./consumer
+    depends_on: 
+      - database
+    network_mode: bridge   
+    container_name: kafka-rest-consumer
+    restart: always
+    environment: 
+      - NODE_ENV=DEV
+    env_file:
+      - database.env
+    links:
+      - database
+    external_links: 
+      - kafka:kafka
+
+  database:
+    image: postgres
+    network_mode: bridge
+    container_name: kafka-rest-postgres
+    volumes:
+      - ~/Docker/Postgres/volumes:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

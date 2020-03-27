@@ -1,0 +1,15 @@
+{
+  "name": "kafka-rest-consumer",
+  "version": "1.0.0",
+  "description": "Simple Kafka REST API",
+  "main": "index.js",
+  "author": "Pekka Laaksonen",
+  "license": "ISC",
+  "dependencies": {
+    "avsc": "^5.4.16",
+    "kafkajs": "^1.11.0",
+    "kafkajs-snappy": "^1.1.0",
+    "pg": "^7.14.0",
+    "snappy": "^6.2.3"
+  }
+}

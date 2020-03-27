@@ -1,5 +1,7 @@
 node_modules
-data
-temp
 eslintrc.json
+.DS_Store
+database.env
 config.json
+topics.json
+test*
