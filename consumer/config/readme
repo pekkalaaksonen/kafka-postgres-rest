@@ -1,5 +1,0 @@
-config_template.json:
-Kafka configuration file. Enter your system configuration and rename file to config.json
-
-topics_template.json:
-List topics you want your consumer to subscribe to

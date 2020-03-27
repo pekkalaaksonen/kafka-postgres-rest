@@ -1,7 +1,5 @@
 node_modules
 eslintrc.json
 .DS_Store
-database.env
-config.json
-topics.json
 test*
+consumer/certs
