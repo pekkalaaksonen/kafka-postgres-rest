@@ -1,18 +1,8 @@
 const { Pool } = require("pg");
-const { loadTopics } = require("./config");
+const { loadTopics, generateTables } = require("./config");
 const topics = loadTopics();
-const tables = [];
+const tables = generateTables(topics);
 const initialDb = "postgres";
-
-for (const topic of topics) {
-  tables.push(
-    topic
-      .split(".")
-      .join("_")
-      .split("-")
-      .join("_")
-  );
-}
 
 const checkDatabase = async db => {
   const pool = new Pool({

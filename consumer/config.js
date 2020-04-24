@@ -29,7 +29,26 @@ const loadConfig = () => {
   }
 };
 
+const generateTables = topics => {
+  const tables = Object.entries(topics).map(([topic, table]) =>
+    table === null || table === "" || table.replace(/\s/g, "").length === 0
+      ? topic
+          .split(".")
+          .join("_")
+          .split("-")
+          .join("_")
+      : table
+          .split(".")
+          .join("_")
+          .split("-")
+          .join("_")
+  );
+
+  return tables;
+};
+
 module.exports = {
   loadTopics: loadTopics,
-  loadConfig: loadConfig
+  loadConfig: loadConfig,
+  generateTables: generateTables
 };
