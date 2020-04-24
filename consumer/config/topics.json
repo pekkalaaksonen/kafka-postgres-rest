@@ -1,20 +1,20 @@
 {
   "dev": {
-    "dev.topic.01": "dev.table.01",
+    "dev.topic.01": "dev_table_01",
     "dev.topic.02": null,
     "dev.topic.03": "",
     "dev.topic.04": " "
   },
   "test": {
-    "test.topic.01": "test.table.01",
-    "test.topic.02": "test.table.02",
-    "test.topic.03": "test.table.03",
-    "test.topic.04": "test.table.04"
+    "test.topic.01": "test_table_01",
+    "test.topic.02": "test_table_02",
+    "test.topic.03": "test_table_03",
+    "test.topic.04": "test_table_04"
   },
   "prod": {
-    "prod.topic.01": "prod.table.01",
-    "prod.topic.02": "prod.table.02",
-    "prod.topic.03": "prod.table.03",
-    "prod.topic.04": "prod.table.04"
+    "prod.topic.01": "prod_table_01",
+    "prod.topic.02": "prod_table_02",
+    "prod.topic.03": "prod_table_03",
+    "prod.topic.04": "prod_table_04"
   }
 }
