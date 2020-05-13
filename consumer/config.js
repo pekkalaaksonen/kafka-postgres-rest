@@ -1,54 +1,26 @@
-let topics;
-let config;
-
-const loadTopics = () => {
-  switch (process.env.NODE_ENV) {
-    case "DEV":
-      topics = require("./config/topics").dev;
-      return topics;
-    case "TEST":
-      topics = require("./config/topics").test;
-      return topics;
-    case "PROD":
-      topics = require("./config/topics").prod;
-      return topics;
+const loadTopics = function(topics) {
+  for (const topic in topics) {
+    if (
+      topics[topic] === null ||
+      topics[topic] === "" ||
+      topics[topic].replace(/\s/g, "").length === 0
+    ) {
+      topics[topic] = topic
+        .split(".")
+        .join("_")
+        .split("-")
+        .join("_");
+    }
   }
+
+  return topics;
 };
 
 const loadConfig = () => {
-  switch (process.env.NODE_ENV) {
-    case "DEV":
-      config = require("./config/config").dev;
-      return config;
-    case "TEST":
-      config = require("./config/config").test;
-      return config;
-    case "PROD":
-      config = require("./config/config").prod;
-      return config;
-  }
-};
-
-const generateTables = topics => {
-  const tables = Object.entries(topics).map(([topic, table]) =>
-    table === null || table === "" || table.replace(/\s/g, "").length === 0
-      ? topic
-          .split(".")
-          .join("_")
-          .split("-")
-          .join("_")
-      : table
-          .split(".")
-          .join("_")
-          .split("-")
-          .join("_")
-  );
-
-  return tables;
+  return require("./config/config")[process.env.NODE_ENV.toLowerCase()];
 };
 
 module.exports = {
   loadTopics: loadTopics,
-  loadConfig: loadConfig,
-  generateTables: generateTables
+  loadConfig: loadConfig
 };

@@ -1,5 +1,7 @@
 const { loadTopics, loadConfig } = require("./config");
-const topics = loadTopics();
+const topics = loadTopics(
+  require("./config/topics")[process.env.NODE_ENV.toLowerCase()]
+);
 const config = loadConfig();
 const {
   Kafka,
@@ -49,7 +51,7 @@ const consumer = kafka.consumer({
 
 const run = async () => {
   await consumer.connect();
-  await topics.forEach(topic => {
+  await Object.keys(topics).forEach(topic => {
     consumer.subscribe({ topic: topic, fromBeginning: false });
   });
 
@@ -88,7 +90,7 @@ const run = async () => {
         await heartbeat();
       }
 
-      await insertRows(batch.topic, decodedMessages);
+      await insertRows(topics[batch.topic], decodedMessages);
     }
   });
 };

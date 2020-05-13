@@ -1,7 +1,9 @@
 const { Pool } = require("pg");
-const { loadTopics, generateTables } = require("./config");
-const topics = loadTopics();
-const tables = generateTables(topics);
+const { loadTopics } = require("./config");
+const topics = loadTopics(
+  require("./config/topics")[process.env.NODE_ENV.toLowerCase()]
+);
+const tables = Object.values(topics);
 const initialDb = "postgres";
 
 const checkDatabase = async db => {
